@@ -7,11 +7,11 @@ public class MoveShoulderPID extends CommandBase {
     @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
 
     private final Arm arm;
-    private final double shoudlerSetpoint;
+    private final double shoulder_setpoint;
 
-    public MoveShoulderPID(Arm arm, double shoudlerSetpoint) {
+    public MoveShoulderPID(Arm arm, double shoulder_setpoint) {
         this.arm = arm;
-        this.shoudlerSetpoint = shoudlerSetpoint;
+        this.shoulder_setpoint = shoulder_setpoint;
 
         addRequirements(arm);
     }
@@ -22,7 +22,7 @@ public class MoveShoulderPID extends CommandBase {
 
     @Override
     public void execute() {
-        arm.setShoulderAngle(shoudlerSetpoint);
+        arm.setShoulderAngle(shoulder_setpoint);
     }
 
     @Override

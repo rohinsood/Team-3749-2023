@@ -7,11 +7,11 @@ public class MoveElbowPID extends CommandBase {
     @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
 
     private final Arm arm;
-    private final double elevatorSetpoint;
+    private final double elbow_setpoint;
 
-    public MoveElbowPID(Arm arm, double elevatorSetpoint) {
+    public MoveElbowPID(Arm arm, double elbow_setpoint) {
         this.arm = arm;
-        this.elevatorSetpoint = elevatorSetpoint;
+        this.elbow_setpoint = elbow_setpoint;
 
         addRequirements(arm);
     }
@@ -22,7 +22,7 @@ public class MoveElbowPID extends CommandBase {
 
     @Override
     public void execute() {
-        arm.setElbowAngle(elevatorSetpoint);
+        arm.setElbowAngle(elbow_setpoint);
     }
 
     @Override
