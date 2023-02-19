@@ -72,7 +72,7 @@ public final class Constants {
             STOWED(190),
             STING(220),
             DOUBLE_SUBSTATION(200),
-            GROUND_INTAKE(150),
+            TOP_INTAKE(150),
             CONE_TOP(140),
             CONE_MID(185),
             CUBE_TOP(150),
@@ -91,7 +91,7 @@ public final class Constants {
             STOWED(25),
             STING(50),
             DOUBLE_SUBSTATION(80),
-            GROUND_INTAKE(53),
+            TOP_INTAKE(53),
             CONE_TOP(160),
             CONE_MID(90),
             CUBE_TOP(140),
@@ -101,6 +101,24 @@ public final class Constants {
 
             ElbowSetpoints(double angle) {
                 this.angle = angle;
+            }
+        }
+
+        public static enum ArmSetpoints {
+            ZERO(ShoulderSetpoints.ZERO.angle, ElbowSetpoints.ZERO.angle),
+            STOWED(ShoulderSetpoints.STOWED.angle, ElbowSetpoints.STOWED.angle),
+            STING(ShoulderSetpoints.STING.angle, ElbowSetpoints.STING.angle),
+            DOUBLE_SUBSTATION(ShoulderSetpoints.DOUBLE_SUBSTATION.angle, ElbowSetpoints.DOUBLE_SUBSTATION.angle),
+            TOP_INTAKE(ShoulderSetpoints.TOP_INTAKE.angle, ElbowSetpoints.TOP_INTAKE.angle),
+            CONE_TOP(ShoulderSetpoints.CONE_TOP.angle, ElbowSetpoints.CONE_TOP.angle),
+            CONE_MID(ShoulderSetpoints.CONE_MID.angle, ElbowSetpoints.CONE_MID.angle),
+            CUBE_TOP(ShoulderSetpoints.CUBE_TOP.angle, ElbowSetpoints.CUBE_TOP.angle),
+            CUBE_MID(ShoulderSetpoints.CUBE_MID.angle, ElbowSetpoints.CUBE_MID.angle);
+
+            public final double[] angles;
+
+            ArmSetpoints(double shoulder_angle, double elbow_angle) {
+                this.angles = new double[]{shoulder_angle, elbow_angle};
             }
         }
     }
